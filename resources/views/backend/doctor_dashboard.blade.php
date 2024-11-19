@@ -133,7 +133,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default card-view">
 				<div class="panel-heading">
-					<h1>Welcom to Admin</h1>
+					<h1>Welcom to Dcotor</h1>
 
 				</div>
 				<div class="panel-wrapper collapse in">

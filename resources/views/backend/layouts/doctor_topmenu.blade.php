@@ -142,9 +142,9 @@
 								<a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
 							</li>
 							<li class="divider"></li>
-							<form action="{{route('admin.logout')}}" method="post">
+							<form action="{{route('doctor.logout')}}" method="post">
 								@csrf
-								<button type="submit" class="btn btn-success"><i class="fa fa-fw fa-power-off"></i>Log Out</button>
+								<button type="submit" class="btn btn-success"><i class="fa fa-fw fa-power-off"></i>Doctor Log Out</button>
 
 							</form>
 							<li>

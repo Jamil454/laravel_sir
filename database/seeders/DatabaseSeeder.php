@@ -19,8 +19,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        \App\Models\Admin::create([
-            'name' => 'Jamil Hossain',
+        // \App\Models\Admin::create([
+        //     'name' => 'Jamil Hossain',
+        //     'email' => 'jamil@gmail.com',
+        //     'password' => Hash::make('jamil123'),
+        // ]);
+        \App\Models\Doctor::create([
+            'name' => 'Doctor Hossain',
             'email' => 'jamil@gmail.com',
             'password' => Hash::make('jamil123'),
         ]);

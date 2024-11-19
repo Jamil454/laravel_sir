@@ -54,7 +54,7 @@
                                         <div class="row">
                                             <div class="col-sm-12 col-xs-12">
                                                 <div class="form-wrap">
-                                                    <form action="{{route('admin.login')}}" method="post">
+                                                    <form action="{{route('doctor.login')}}" method="post">
                                                         @csrf
                                                         <div class="form-group">
                                                             <label class="control-label mb-10" for="exampleInputEmail_2">Email address</label>
@@ -80,7 +80,7 @@
                                                             <div class="clearfix"></div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <button type="submit" class="btn btn-success btn-block">sign in</button>
+                                                            <button type="submit" class="btn btn-success btn-block"> Doctor sign in</button>
                                                         </div>
                                                         <div class="form-group mb-0">
                                                             <span class="inline-block pr-5">Don't have an account?</span>
