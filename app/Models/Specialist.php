@@ -13,4 +13,9 @@ class Specialist extends Model
         'details'
 
     ];
+    public function doctor(){
+        return $this->hasMany(Doctor::class);
+
+    }
+
 }

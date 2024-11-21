@@ -42,9 +42,9 @@
                                 <div class="panel-heading">
                                     <div class="pull-left">
                                     @if($errors)
-                                        <div class="alert alert-danger">{{$errors->first('email')}}</div>
+                                        <div >{{$errors->first('email')}}</div>
                                         @endif
-                                        <h6 class="panel-title txt-dark">Sign In</h6>
+                                        <h6 class="panel-title txt-dark">Admin Sign In</h6>
                                        
                                     </div>
                                     <div class="clearfix"></div>

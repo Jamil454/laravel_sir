@@ -129,6 +129,11 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="dist/img/user1.png" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
 						<ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+							
+							<li>
+								<a href="#"> {{Auth()->guard()->user()->name}}</a>
+							</li>
+							
 							<li>
 								<a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
 							</li>
@@ -144,7 +149,7 @@
 							<li class="divider"></li>
 							<form action="{{route('admin.logout')}}" method="post">
 								@csrf
-								<button type="submit" class="btn btn-success"><i class="fa fa-fw fa-power-off"></i>Log Out</button>
+								<button type="submit" class="btn btn-success"><i class="fa fa-fw fa-power-off"></i>Admin Log Out</button>
 
 							</form>
 							<li>

@@ -21,7 +21,8 @@ class Doctor extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password'
+        'password',
+        'specialist_id',
     ];
 
     /**
@@ -44,4 +45,9 @@ class Doctor extends Authenticatable
         
         'password' => 'hashed',
     ];
+    public function specialist(){
+        return $this->belongsTo(Specialist::class);
+
+    }
+
 }

@@ -61,73 +61,7 @@
 				<!-- /Title -->
 				
 				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-
-								@if(session('msg'))
-
-								<div class="alert alert-success">{{session('msg')}}</div>
-								@endif
-									<h6 class="panel-title txt-dark">Export</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<div class="table-wrap">
-										<div class="table-responsive">
-											<a href="{{route('specialist.create')}}" class="btn btn-success pull-right">Add New</a>
-											<table id="example" class="table table-hover display  pb-30" >
-												<thead>
-												<tr>
-														<th>ID</th>
-														<th>Specialist Name</th>
-														<th>Details</th>
-														<th>Action</th>
-														
-													</tr>
-												</thead>
-												<tfoot>
-													<tr>
-														<th>ID</th>
-														<th>Specialist Name</th>
-														<th>Details</th>
-														<th>Action</th>
-														
-													</tr>
-												</tfoot>
-												<tbody>
-													@foreach($items as $item)
-													<tr>
-														<td>{{$loop->iteration}}</td>
-														<td>{{$item->name}}</td>
-														<td>{{$item->details}}</td>
-														<td> 
-														
-
-														<form action="{{route('specialist.destroy' , $item->id)}}" method="post">
-															@csrf
-															@method('DELETE')
-															<a href="{{route('specialist.edit' , $item->id)}}" class="btn btn-info">Edit</a>
-															<button type="submit" class="btn btn-danger" name="submit">Delete</button>
-														</form>
-															 </td>
-														
-													</tr>
-													@endforeach
-													
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>	
-					</div>
-				</div>
+				
 				<!-- /Row -->
 			</div>
 
