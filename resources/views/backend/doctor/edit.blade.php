@@ -52,7 +52,7 @@
         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
             <ol class="breadcrumb">
                 <li><a href="index.html">Dashboard</a></li>
-                <li><a href="#"><span>Specialist</span></a></li>
+                <li><a href="#"><span>table</span></a></li>
                 <li class="active"><span>Export</span></li>
             </ol>
         </div>
@@ -66,7 +66,7 @@
             <div class="panel panel-default card-view">
                 <div class="panel-heading">
                     <div class="pull-left">
-                        <h6 class="panel-title txt-dark">Dispaly Specialist</h6>
+                        <h6 class="panel-title txt-dark">New Specialist</h6>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -74,9 +74,37 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">
-                                {{$specialist->id}} <br>
-                                {{$specialist->name}} <br>
-                                {{$specialist->details}} <br>
+                                <div class="form-wrap">
+                                    <form class="form-horizontal" method="post" action="{{route('specialist.update',$specialist->id)}}">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="form-group">
+                                            <label for="exampleInputuname_3" class="col-sm-3 control-label">Edit Specialist:*</label>
+                                            <div class="col-sm-9">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"></div>
+                                                    <input type="text" name="specialist" value="{{$specialist->name}}" class="form-control" id="exampleInputuname_3" placeholder="name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail_3" class="col-sm-3 control-label">Details:*</label>
+                                            <div class="col-sm-9">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"></div>
+                                                    <textarea type="text" name="details" class="form-control" id="exampleInputEmail_3" rows="10"
+                                                        placeholder="Enter details">{{$specialist->details}}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group mb-0">
+                                            <div class="col-sm-offset-3 col-sm-9">
+                                                <button type="submit" class="btn btn-info ">Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

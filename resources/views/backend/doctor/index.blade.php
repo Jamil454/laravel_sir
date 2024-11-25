@@ -79,13 +79,13 @@
 					<div class="panel-body">
 						<div class="table-wrap">
 							<div class="table-responsive">
-								<a href="{{route('specialist.create')}}" class="btn btn-success pull-right">Add New</a>
+								<a href="{{route('doctor.create')}}" class="btn btn-success pull-right">Add New</a>
 								<table id="example" class="table table-hover display  pb-30">
 									<thead>
 										<tr>
 											<th>ID</th>
-											<th>Specialist Name</th>
-											<th>Details</th>
+											<th>Doctor Name</th>
+											<th>Specialist</th>
 											<th>Action</th>
 
 										</tr>
@@ -93,8 +93,8 @@
 									<tfoot>
 										<tr>
 											<th>ID</th>
-											<th>Specialist Name</th>
-											<th>Details</th>
+											<th>Doctor Name</th>
+											<th>Specialist</th>
 											<th style="width: 280px;">Action</th>
 
 										</tr>
@@ -104,7 +104,7 @@
 										<tr>
 											<td>{{$loop->iteration}}</td>
 											<td>{{$item->name}}</td>
-											<td>{{$item->details}}</td>
+											<td>{{$item->specialist->name}}</td>
 											<td>
 
 												
