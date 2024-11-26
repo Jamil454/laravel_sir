@@ -32,13 +32,22 @@ class DoctorController extends Controller
             [
                 'name'=>'required | max:100 | min:5',
                 'specialist'=>'required',
-                'email'=>'required | max:50 ',
+                'email'=>'required | email | max:50 ',
                 'password'=>'required | min:8 | confirmed ',
-                'photo'=>'max:2048',
+                'photo'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'status'=>'required',
             ],
             
         );
+        
+        if ($image = $request->file('image')) {
+            $destinationPath = 'images/';
+            $postImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $postImage);
+            $photo=$destinationPath.$postImage;
+        }else{
+            $photo='images/nophoto.jpg';
+        }
         
         $doctor = new Doctor;
         
@@ -46,7 +55,7 @@ class DoctorController extends Controller
         $doctor->specialist_id = $request->specialist;
         $doctor->email = $request->email;
         $doctor->password = bcrypt($request->password);
-        $doctor->photo = $request->photo;
+        $doctor->photo = $photo;
         $doctor->status = $request->status;
         
         $doctor->save();
@@ -62,22 +71,52 @@ class DoctorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Doctor $doctor)
     {
-        //
+        $specialists = Specialist::all();
+        return view('backend.doctor.edit', compact('doctor','specialists' ));
     }
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Doctor $doctor)
     {
-        //
+        $request->validate(
+            [
+                'name'=>'required | max:100 | min:5',
+                'specialist'=>'required',
+                'email'=>'required | email | max:50 ',
+                'photo'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'status'=>'required',
+            ],
+            
+        );
+        if ($image = $request->file('image')) {
+            $destinationPath = 'images/';
+            $postImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $postImage);
+            $photo=$destinationPath.$postImage;
+        }else{
+            $photo=$doctor->name;
+        }
+        
+        
+        $doctor->name = $request->name;
+        $doctor->specialist_id = $request->specialist;
+        $doctor->email = $request->email;
+        $doctor->password =$doctor->password;
+        $doctor->photo = $photo;
+        $doctor->status = $request->status;
+        
+        $doctor->save();
+        return redirect()->route('doctor.index')->with('msg', "Successfully Doctor Updated");
     }
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Doctor $doctor)
     {
-        //
+        $doctor->delete();
+        return redirect()->route('doctor.index')->with('msg', "Successfully Deleted");
     }
 }
